@@ -136,7 +136,7 @@ const PersonalItinerary: React.FC = () => {
                   <ActivityCard
                     key={activity.id}
                     activity={activity}
-                    isInPersonalItinerary={true}
+                    isInPersonalItinerary={personalActivities.includes(activity.id)}
                     onToggleActivity={handleRemoveActivity}
                   />
                 ))}
