@@ -16,6 +16,7 @@ activities_db = {
         location="San Francisco International Airport",
         category="Transportation"
     ),
+    
     "flight2": Activity(
         id="flight2",
         title="Flight from Singapore to Bali",
@@ -34,54 +35,63 @@ activities_db = {
         location="Denpasar International Airport",
         category="Transportation"
     ),
-    "act1a": Activity(
-        id="act1a",
+    "checkin1": Activity(
+        id="checkin1",
         title="Check-in at Como Shambhala",
         description="Arrival and check-in at the luxurious Como Shambhala retreat (Option 1)",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 18),
         time=time(12, 0),
         location="Como Shambhala Estate, Ubud",
         category="Accommodation"
     ),
-    "act1b": Activity(
-        id="act1b",
+    "checkin2": Activity(
+        id="checkin2",
         title="Check-in at Ritz-Carlton",
         description="Arrival and check-in at the Ritz-Carlton Bali (Option 2)",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 18),
         time=time(12, 0),
         location="Ritz-Carlton Bali",
         category="Accommodation"
     ),
-    "act4": Activity(
-        id="act4",
+    "lunch_fri": Activity(
+        id="lunch_fri",
         title="Lunch",
         description="Nutritious lunch featuring Balinese flavors",
-        date=date(2025, 4, 19),
-        time=time(12, 30),
-        location="Como Shambhala Restaurant",
+        date=date(2025, 4, 18),
+        time=time(13, 0),
+        location="Resort Restaurant",
         category="Dining"
     ),
-    "act5": Activity(
-        id="act5",
+    "pool_fri": Activity(
+        id="pool_fri",
+        title="Afternoon Pool Time",
+        description="Relax by the infinity pool with jungle views",
+        date=date(2025, 4, 18),
+        time=time(14, 30),
+        location="Resort Pool",
+        category="Relaxation"
+    ),
+    "gym_fri": Activity(
+        id="gym_fri",
         title="Afternoon Gym Session",
         description="Guided workout at the resort's fitness center",
-        date=date(2025, 4, 19),
-        time=time(15, 0),
-        location="Como Shambhala Gym",
+        date=date(2025, 4, 18),
+        time=time(16, 0),
+        location="Resort Gym",
         category="Fitness"
     ),
-    "act7": Activity(
-        id="act7",
+    "dinner_fri": Activity(
+        id="dinner_fri",
         title="Dinner",
         description="Gourmet dinner with organic ingredients",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 18),
         time=time(18, 0),
-        location="Como Shambhala Restaurant",
+        location="Resort Restaurant",
         category="Dining"
     ),
     
-    "act8": Activity(
-        id="act8",
+    "yoga_sat": Activity(
+        id="yoga_sat",
         title="Morning Yoga Session",
         description="Start your day with a rejuvenating yoga session",
         date=date(2025, 4, 19),
@@ -89,8 +99,8 @@ activities_db = {
         location="Como Shambhala Yoga Pavilion",
         category="Yoga"
     ),
-    "act9": Activity(
-        id="act9",
+    "gym_sat": Activity(
+        id="gym_sat",
         title="Morning Gym Session",
         description="Guided workout at the resort's fitness center",
         date=date(2025, 4, 19),
@@ -98,281 +108,317 @@ activities_db = {
         location="Como Shambhala Gym",
         category="Fitness"
     ),
-    "act10": Activity(
-        id="act10",
-        title="Brunch",
-        description="Nutritious brunch with fresh local ingredients",
+    "lunch_sat": Activity(
+        id="lunch_sat",
+        title="Lunch",
+        description="Nutritious lunch featuring Balinese flavors",
         date=date(2025, 4, 19),
-        time=time(11, 0),
+        time=time(12, 0),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
-    "act11a": Activity(
-        id="act11a",
+    "pool_sat": Activity(
+        id="pool_sat",
         title="Afternoon Pool Time",
         description="Relax by the infinity pool with jungle views",
         date=date(2025, 4, 19),
-        time=time(13, 0),
+        time=time(14, 0),
         location="Como Shambhala Pool",
         category="Relaxation"
     ),
-    "act11b": Activity(
-        id="act11b",
+    "spa_sat": Activity(
+        id="spa_sat",
         title="Spa Treatment",
         description="Relaxing spa treatment",
         date=date(2025, 4, 19),
-        time=time(13, 0),
+        time=time(14, 0),
         location="Como Shambhala Spa",
         category="Relaxation"
     ),
-    "act13": Activity(
-        id="act13",
+    "dinner_sat": Activity(
+        id="dinner_sat",
         title="Dinner",
         description="Gourmet dinner with organic ingredients",
         date=date(2025, 4, 19),
-        time=time(17, 0),
+        time=time(18, 0),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
     
-    "act14": Activity(
-        id="act14",
+    "batur_hike": Activity(
+        id="batur_hike",
         title="Mount Batur Sunrise Trek",
         description="Early morning hike to witness the sunrise from Mount Batur",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(2, 30),
         location="Mount Batur",
         category="Hiking"
     ),
-    "act15": Activity(
-        id="act15",
+    "yoga_sun": Activity(
+        id="yoga_sun",
         title="Early Yoga Session",
         description="Gentle yoga session after the morning hike",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(7, 0),
         location="Como Shambhala Yoga Pavilion",
         category="Yoga"
     ),
-    "act16": Activity(
-        id="act16",
+    "breakfast_sun": Activity(
+        id="breakfast_sun",
         title="Late Breakfast",
         description="Relaxed breakfast after the morning hike",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(8, 30),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
-    "act17a": Activity(
-        id="act17a",
-        title="Morning Gym Session",
+    "gym_sun": Activity(
+        id="gym_sun",
+        title="Morning Gym Session (Optional)",
         description="Optional light workout at the resort's fitness center",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(10, 0),
         location="Como Shambhala Gym",
         category="Fitness"
     ),
-    "act17b": Activity(
-        id="act17b",
+    "pool_sun": Activity(
+        id="pool_sun",
         title="Pool Time",
         description="Relax by the infinity pool with jungle views",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(10, 0),
         location="Como Shambhala Pool",
         category="Relaxation"
     ),
-    "act18": Activity(
-        id="act18",
+    "lunch_sun": Activity(
+        id="lunch_sun",
         title="Lunch",
         description="Nutritious lunch featuring Balinese flavors",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(13, 0),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
-    "act20": Activity(
-        id="act20",
+    "spa_sun": Activity(
+        id="spa_sun",
+        title="Spa Treatment",
+        description="Relaxing spa treatment",
+        date=date(2025, 4, 20),
+        time=time(15, 0),
+        location="Como Shambhala Spa",
+        category="Relaxation"
+    ),
+    "dinner_sun": Activity(
+        id="dinner_sun",
         title="Dinner",
         description="Gourmet dinner with organic ingredients",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 20),
         time=time(18, 0),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
     
-    "act21": Activity(
-        id="act21",
+    "yoga_mon": Activity(
+        id="yoga_mon",
         title="Morning Yoga Session",
         description="Start your day with a rejuvenating yoga session",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 21),
         time=time(7, 0),
         location="Como Shambhala Yoga Pavilion",
         category="Yoga"
     ),
-    "act22": Activity(
-        id="act22",
+    "breakfast_mon": Activity(
+        id="breakfast_mon",
         title="Breakfast",
         description="Healthy breakfast with fresh local ingredients",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 21),
         time=time(8, 30),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
-    "act23": Activity(
-        id="act23",
+    "pilates_mon": Activity(
+        id="pilates_mon",
+        title="Morning Pilates Class",
+        description="Pilates class with jungle views",
+        date=date(2025, 4, 21),
+        time=time(10, 0),
+        location="Como Shambhala Fitness Studio",
+        category="Fitness"
+    ),
+    "lunch_mon": Activity(
+        id="lunch_mon",
         title="Lunch",
         description="Nutritious lunch featuring Balinese flavors",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 21),
         time=time(12, 30),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
-    "act24": Activity(
-        id="act24",
-        title="Afternoon Gym Session",
-        description="Guided workout at the resort's fitness center",
-        date=date(2025, 4, 19),
-        time=time(15, 0),
-        location="Como Shambhala Gym",
-        category="Fitness"
-    ),
-    "act25": Activity(
-        id="act25",
+    "massage_mon": Activity(
+        id="massage_mon",
         title="Balinese Massage",
         description="Traditional Balinese massage treatment",
-        date=date(2025, 4, 19),
-        time=time(16, 0),
+        date=date(2025, 4, 21),
+        time=time(15, 0),
         location="Como Shambhala Spa",
         category="Relaxation"
     ),
-    "act26": Activity(
-        id="act26",
+    "dinner_mon": Activity(
+        id="dinner_mon",
         title="Dinner",
         description="Gourmet dinner with organic ingredients",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 21),
         time=time(18, 0),
         location="Como Shambhala Restaurant",
         category="Dining"
     ),
     
-    "act29": Activity(
-        id="act29",
+    "checkout_tue": Activity(
+        id="checkout_tue",
         title="Check-out & Transfer",
         description="Check out from Como Shambhala and transfer to Alila Uluwatu",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 22),
         time=time(11, 0),
         location="Como Shambhala to Alila Uluwatu",
         category="Transportation"
     ),
-    "act30": Activity(
-        id="act30",
+    "checkin_uluwatu": Activity(
+        id="checkin_uluwatu",
         title="Check-in at Alila Uluwatu",
         description="Arrival and check-in at the stunning Alila Uluwatu",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 22),
         time=time(14, 0),
         location="Alila Uluwatu",
         category="Accommodation"
     ),
-    "act31": Activity(
-        id="act31",
+    "lunch_tue": Activity(
+        id="lunch_tue",
         title="Lunch",
         description="Welcome lunch at Alila Uluwatu",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 22),
         time=time(15, 0),
         location="Alila Uluwatu Restaurant",
         category="Dining"
     ),
-    "act32": Activity(
-        id="act32",
+    "pilates_tue": Activity(
+        id="pilates_tue",
         title="Afternoon Pilates Class",
         description="Pilates class with ocean views",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 22),
         time=time(16, 0),
         location="Alila Uluwatu Fitness Studio",
         category="Fitness"
     ),
-    "act33": Activity(
-        id="act33",
+    "yoga_tue": Activity(
+        id="yoga_tue",
         title="Sunset Yoga Session",
         description="Yoga session with stunning sunset views",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 22),
         time=time(17, 0),
         location="Alila Uluwatu Cliff Edge",
         category="Yoga"
     ),
-    "act34": Activity(
-        id="act34",
+    "dinner_tue": Activity(
+        id="dinner_tue",
         title="Dinner",
         description="Dinner at Alila Uluwatu's signature restaurant",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 22),
         time=time(19, 0),
         location="Alila Uluwatu Restaurant",
         category="Dining"
     ),
     
-    "act35": Activity(
-        id="act35",
+    "dive_wed": Activity(
+        id="dive_wed",
         title="Morning Dive in Uluwatu",
         description="Scuba diving experience in Uluwatu's crystal waters",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(6, 30),
         location="Uluwatu Dive Site",
         category="Adventure"
     ),
-    "act36": Activity(
-        id="act36",
+    "yoga_wed": Activity(
+        id="yoga_wed",
         title="Morning Yoga Session",
         description="Alternative yoga session for non-divers",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(7, 0),
         location="Alila Uluwatu Yoga Pavilion",
         category="Yoga"
     ),
-    "act37": Activity(
-        id="act37",
+    "breakfast_wed": Activity(
+        id="breakfast_wed",
         title="Late Breakfast",
         description="Relaxed breakfast after the morning activities",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(10, 0),
         location="Alila Uluwatu Restaurant",
         category="Dining"
     ),
-    "act38": Activity(
-        id="act38",
+    "lunch_wed": Activity(
+        id="lunch_wed",
         title="Lunch",
         description="Lunch with ocean views",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(13, 0),
         location="Alila Uluwatu Restaurant",
         category="Dining"
     ),
-    "act39": Activity(
-        id="act39",
+    "gym_wed": Activity(
+        id="gym_wed",
         title="Afternoon Gym Session",
         description="Workout at Alila's fitness center",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(16, 0),
         location="Alila Uluwatu Gym",
         category="Fitness"
     ),
-    "act40": Activity(
-        id="act40",
+    "yoga_sunset_wed": Activity(
+        id="yoga_sunset_wed",
         title="Sunset Yoga Session",
         description="Yoga session with stunning sunset views",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(17, 30),
         location="Alila Uluwatu Cliff Edge",
         category="Yoga"
     ),
-    "act41": Activity(
-        id="act41",
+    "dinner_wed": Activity(
+        id="dinner_wed",
         title="Dinner",
         description="Dinner at Alila Uluwatu's signature restaurant",
-        date=date(2025, 4, 19),
+        date=date(2025, 4, 23),
         time=time(18, 0),
         location="Alila Uluwatu Restaurant",
         category="Dining"
     ),
     
+    "checkout_thu": Activity(
+        id="checkout_thu",
+        title="Check-out from Alila Uluwatu",
+        description="Check out and prepare for departure",
+        date=date(2025, 4, 24),
+        time=time(10, 0),
+        location="Alila Uluwatu",
+        category="Transportation"
+    ),
+    "airport_transfer": Activity(
+        id="airport_transfer",
+        title="Transfer to Denpasar Airport",
+        description="Transfer from Alila Uluwatu to Denpasar International Airport",
+        date=date(2025, 4, 24),
+        time=time(12, 0),
+        location="Alila Uluwatu to Denpasar Airport",
+        category="Transportation"
+    ),
+    "flight_to_singapore": Activity(
+        id="flight_to_singapore",
+        title="Flight to Singapore",
+        description="Flight from Bali to Singapore",
+        date=date(2025, 4, 24),
+        time=time(15, 0),
+        location="Denpasar International Airport",
+        category="Transportation"
+    )
 }
 
 @router.get("/", response_model=List[Activity])
