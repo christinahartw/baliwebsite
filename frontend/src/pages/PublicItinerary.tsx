@@ -23,7 +23,7 @@ const PublicItinerary: React.FC = () => {
     
     const fetchData = async () => {
       try {
-        const activitiesResponse = await fetch('http://localhost:8000/activities/');
+        const activitiesResponse = await fetch('https://bali-trip-website.fly.dev/activities/');
         if (!activitiesResponse.ok) {
           throw new Error('Failed to fetch activities');
         }
@@ -31,7 +31,7 @@ const PublicItinerary: React.FC = () => {
         setActivities(activitiesData);
 
         const userId = JSON.parse(storedUser).id;
-        const itineraryResponse = await fetch(`http://localhost:8000/itineraries/${userId}`);
+        const itineraryResponse = await fetch(`https://bali-trip-website.fly.dev/itineraries/${userId}`);
         if (itineraryResponse.ok) {
           const itineraryData = await itineraryResponse.json();
           setPersonalActivities(itineraryData.activities);
@@ -52,12 +52,12 @@ const PublicItinerary: React.FC = () => {
 
     try {
       if (personalActivities.includes(activityId)) {
-        await fetch(`http://localhost:8000/itineraries/${user.id}/activities/${activityId}`, {
+        await fetch(`https://bali-trip-website.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
           method: 'DELETE',
         });
         setPersonalActivities(prev => prev.filter(id => id !== activityId));
       } else {
-        await fetch(`http://localhost:8000/itineraries/${user.id}/activities/${activityId}`, {
+        await fetch(`https://bali-trip-website.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
           method: 'POST',
         });
         setPersonalActivities(prev => [...prev, activityId]);
@@ -88,29 +88,30 @@ const PublicItinerary: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Bali Trip Public Itinerary</h1>
-        <div className="space-x-2">
-          <Button onClick={() => navigate('/personal-itinerary')}>
-            View My Itinerary
-          </Button>
-          <Button variant="outline" onClick={() => {
-            localStorage.removeItem('user');
-            navigate('/');
-          }}>
-            Sign Out
-          </Button>
+    <div className="min-h-screen bg-gradient-to-b from-primary/10 to-accent/10 pb-8">
+      <div className="container mx-auto p-4">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 bg-primary/20 p-4 rounded-lg shadow-sm">
+          <h1 className="text-3xl font-bold text-primary mb-4 md:mb-0">Bali Trip Public Itinerary</h1>
+          <div className="space-x-2">
+            <Button onClick={() => navigate('/personal-itinerary')}>
+              View My Itinerary
+            </Button>
+            <Button variant="outline" onClick={() => {
+              localStorage.removeItem('user');
+              navigate('/');
+            }}>
+              Sign Out
+            </Button>
+          </div>
         </div>
-      </div>
-      
-      <p className="mb-6 text-gray-600">
-        Browse the public itinerary and add activities to your personal itinerary.
-      </p>
+        
+        <p className="mb-6 text-muted-foreground bg-white/50 p-3 rounded-md shadow-sm border border-primary/20 text-center">
+          Browse the public itinerary and add activities to your personal itinerary.
+        </p>
 
       {sortedDates.map(date => (
-        <div key={date} className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">
+        <div key={date} className="mb-8 bg-white/50 p-4 rounded-lg shadow-sm border border-primary/20">
+          <h2 className="text-2xl font-semibold mb-4 text-secondary-foreground">
             {new Date(date).toLocaleDateString('en-US', {
               weekday: 'long',
               month: 'long',
@@ -132,6 +133,7 @@ const PublicItinerary: React.FC = () => {
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 };

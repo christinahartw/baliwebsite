@@ -16,7 +16,7 @@ const Register = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8000/users/', {
+      const response = await fetch('https://bali-trip-website.fly.dev/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Register = () => {
       
       localStorage.setItem('user', JSON.stringify(data));
       
-      await fetch(`http://localhost:8000/itineraries/`, {
+      await fetch(`https://bali-trip-website.fly.dev/itineraries/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,39 +50,47 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-center">Bali Trip - April 18-24, 2025</CardTitle>
-          <CardDescription className="text-center">Create an account to view and select activities</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">Email</label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              {error && <p className="text-sm text-red-500">{error}</p>}
-              <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? 'Creating Account...' : 'Create Account'}
-              </Button>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-primary/20 to-accent/20">
+      <div className="w-full max-w-md px-4">
+        <Card className="w-full border-2 border-primary/30 shadow-lg">
+          <CardHeader className="bg-primary/10 rounded-t-lg">
+            <div className="flex flex-col items-center space-y-2">
+              <h1 className="text-3xl font-bold text-center text-primary">Bali Trip</h1>
+              <CardTitle className="text-center text-xl">April 18-24, 2025</CardTitle>
+              <CardDescription className="text-center text-base">
+                Create an account to view and select activities
+              </CardDescription>
             </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex justify-center">
-          <p className="text-sm text-gray-500">
-            No password required. Just enter your email to get started.
-          </p>
-        </CardFooter>
-      </Card>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <form onSubmit={handleSubmit}>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">Email</label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="border-2 border-primary/30 focus:border-primary/50"
+                  />
+                </div>
+                {error && <p className="text-sm text-destructive">{error}</p>}
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? 'Creating Account...' : 'Create Account'}
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-center bg-accent/10 rounded-b-lg">
+            <p className="text-sm text-muted-foreground">
+              No password required. Just enter your email to get started.
+            </p>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 };

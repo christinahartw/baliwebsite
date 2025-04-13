@@ -23,14 +23,14 @@ const PersonalItinerary: React.FC = () => {
     
     const fetchData = async () => {
       try {
-        const activitiesResponse = await fetch('http://localhost:8000/activities/');
+        const activitiesResponse = await fetch('https://bali-trip-website.fly.dev/activities/');
         if (!activitiesResponse.ok) {
           throw new Error('Failed to fetch activities');
         }
         const activitiesData = await activitiesResponse.json();
         
         const userId = JSON.parse(storedUser).id;
-        const itineraryResponse = await fetch(`http://localhost:8000/itineraries/${userId}`);
+        const itineraryResponse = await fetch(`https://bali-trip-website.fly.dev/itineraries/${userId}`);
         if (!itineraryResponse.ok) {
           throw new Error('Failed to fetch personal itinerary');
         }
@@ -58,7 +58,7 @@ const PersonalItinerary: React.FC = () => {
     if (!user) return;
 
     try {
-      await fetch(`http://localhost:8000/itineraries/${user.id}/activities/${activityId}`, {
+      await fetch(`https://bali-trip-website.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
         method: 'DELETE',
       });
       
@@ -90,37 +90,38 @@ const PersonalItinerary: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">My Bali Trip Itinerary</h1>
-        <div className="space-x-2">
-          <Button onClick={() => navigate('/public-itinerary')}>
-            View Public Itinerary
-          </Button>
-          <Button variant="outline" onClick={() => {
-            localStorage.removeItem('user');
-            navigate('/');
-          }}>
-            Sign Out
-          </Button>
+    <div className="min-h-screen bg-gradient-to-b from-secondary/10 to-accent/10 pb-8">
+      <div className="container mx-auto p-4">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 bg-secondary/20 p-4 rounded-lg shadow-sm">
+          <h1 className="text-3xl font-bold text-secondary-foreground mb-4 md:mb-0">My Bali Trip Itinerary</h1>
+          <div className="space-x-2">
+            <Button onClick={() => navigate('/public-itinerary')}>
+              View Public Itinerary
+            </Button>
+            <Button variant="outline" onClick={() => {
+              localStorage.removeItem('user');
+              navigate('/');
+            }}>
+              Sign Out
+            </Button>
+          </div>
         </div>
-      </div>
-      
-      <p className="mb-6 text-gray-600">
-        Your personalized itinerary for the Bali trip.
-      </p>
+        
+        <p className="mb-6 text-muted-foreground bg-white/50 p-3 rounded-md shadow-sm border border-secondary/20 text-center">
+          Your personalized itinerary for the Bali trip.
+        </p>
 
       {activities.length === 0 && !loading ? (
-        <div className="text-center py-8">
-          <p className="text-xl mb-4">You haven't added any activities to your itinerary yet.</p>
+        <div className="text-center py-12 bg-white/50 rounded-lg shadow-sm border border-secondary/20">
+          <p className="text-xl mb-4 text-muted-foreground">You haven't added any activities to your itinerary yet.</p>
           <Button onClick={() => navigate('/public-itinerary')}>
             Browse Public Itinerary
           </Button>
         </div>
       ) : (
         sortedDates.map(date => (
-          <div key={date} className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div key={date} className="mb-8 bg-white/50 p-4 rounded-lg shadow-sm border border-secondary/20">
+            <h2 className="text-2xl font-semibold mb-4 text-secondary-foreground">
               {new Date(date).toLocaleDateString('en-US', {
                 weekday: 'long',
                 month: 'long',
@@ -143,6 +144,7 @@ const PersonalItinerary: React.FC = () => {
           </div>
         ))
       )}
+      </div>
     </div>
   );
 };
