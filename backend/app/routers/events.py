@@ -18,8 +18,8 @@ async def create_event(event: UserEventCreate, user_id: str = Body(...)):
         user_id=user_id,
         title=event.title,
         description=event.description,
-        date=event.date,
-        time=event.time,
+        date=event.date,  # Now accepts string format
+        time=event.time,  # Now accepts string format
         link=event.link,
         created_at=datetime.now().isoformat()
     )

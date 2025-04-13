@@ -20,16 +20,16 @@ class UserEvent(BaseModel):
     user_id: str
     title: str
     description: str
-    date: date
-    time: time
+    date: str  # String format YYYY-MM-DD
+    time: str  # String format HH:MM
     link: Optional[HttpUrl] = None
     created_at: Optional[str] = None
 
 class UserEventCreate(BaseModel):
     title: str
     description: str
-    date: date
-    time: time
+    date: str  # Accept string format YYYY-MM-DD
+    time: str  # Accept string format HH:MM
     link: Optional[HttpUrl] = None
 
 class Itinerary(BaseModel):
