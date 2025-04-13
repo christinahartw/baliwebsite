@@ -56,7 +56,7 @@ const Register = () => {
           <CardHeader className="bg-primary/10 rounded-t-lg">
             <div className="flex flex-col items-center space-y-2">
               <h1 className="text-3xl font-bold text-center text-primary">Bali Trip</h1>
-              <CardTitle className="text-center text-xl">April 14-21, 2025</CardTitle>
+              <CardTitle className="text-center text-xl">April 16-24, 2025</CardTitle>
               <CardDescription className="text-center text-base">
                 Create an account to view and select activities
               </CardDescription>
