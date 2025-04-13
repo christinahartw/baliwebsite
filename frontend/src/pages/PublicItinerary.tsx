@@ -96,6 +96,9 @@ const PublicItinerary: React.FC = () => {
             <Button onClick={() => navigate('/personal-itinerary')}>
               View My Itinerary
             </Button>
+            <Button onClick={() => navigate('/user-events')}>
+              User Events
+            </Button>
             <Button variant="outline" onClick={() => {
               localStorage.removeItem('user');
               navigate('/');
