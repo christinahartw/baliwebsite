@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, HttpUrl
 from typing import List, Optional
 from datetime import date, time
 
@@ -14,6 +14,23 @@ class Activity(BaseModel):
     time: time
     location: str
     category: str
+
+class UserEvent(BaseModel):
+    id: str
+    user_id: str
+    title: str
+    description: str
+    date: date
+    time: time
+    link: Optional[HttpUrl] = None
+    created_at: Optional[str] = None
+
+class UserEventCreate(BaseModel):
+    title: str
+    description: str
+    date: date
+    time: time
+    link: Optional[HttpUrl] = None
 
 class Itinerary(BaseModel):
     user_id: str
