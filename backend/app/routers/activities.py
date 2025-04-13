@@ -52,24 +52,6 @@ activities_db = {
         location="Ritz-Carlton Bali",
         category="Accommodation"
     ),
-    "act2": Activity(
-        id="act2",
-        title="Morning Yoga Session",
-        description="Start your day with a rejuvenating yoga session",
-        date=date(2025, 4, 18),
-        time=time(7, 0),
-        location="Como Shambhala Yoga Pavilion",
-        category="Yoga"
-    ),
-    "act3": Activity(
-        id="act3",
-        title="Breakfast",
-        description="Healthy breakfast with fresh local ingredients",
-        date=date(2025, 4, 18),
-        time=time(8, 30),
-        location="Como Shambhala Restaurant",
-        category="Dining"
-    ),
     "act4": Activity(
         id="act4",
         title="Lunch",
