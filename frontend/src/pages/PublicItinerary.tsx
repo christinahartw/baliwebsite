@@ -23,7 +23,7 @@ const PublicItinerary: React.FC = () => {
     
     const fetchData = async () => {
       try {
-        const activitiesResponse = await fetch('https://bali-trip-website.fly.dev/activities/');
+        const activitiesResponse = await fetch('https://app-qfmuihch.fly.dev/activities/');
         if (!activitiesResponse.ok) {
           throw new Error('Failed to fetch activities');
         }
@@ -31,7 +31,7 @@ const PublicItinerary: React.FC = () => {
         setActivities(activitiesData);
 
         const userId = JSON.parse(storedUser).id;
-        const itineraryResponse = await fetch(`https://bali-trip-website.fly.dev/itineraries/${userId}`);
+        const itineraryResponse = await fetch(`https://app-qfmuihch.fly.dev/itineraries/${userId}`);
         if (itineraryResponse.ok) {
           const itineraryData = await itineraryResponse.json();
           setPersonalActivities(itineraryData.activities);
@@ -52,12 +52,12 @@ const PublicItinerary: React.FC = () => {
 
     try {
       if (personalActivities.includes(activityId)) {
-        await fetch(`https://bali-trip-website.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
+        await fetch(`https://app-qfmuihch.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
           method: 'DELETE',
         });
         setPersonalActivities(prev => prev.filter(id => id !== activityId));
       } else {
-        await fetch(`https://bali-trip-website.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
+        await fetch(`https://app-qfmuihch.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
           method: 'POST',
         });
         setPersonalActivities(prev => [...prev, activityId]);

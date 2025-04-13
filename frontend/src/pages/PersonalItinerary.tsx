@@ -23,14 +23,14 @@ const PersonalItinerary: React.FC = () => {
     
     const fetchData = async () => {
       try {
-        const activitiesResponse = await fetch('https://bali-trip-website.fly.dev/activities/');
+        const activitiesResponse = await fetch('https://app-qfmuihch.fly.dev/activities/');
         if (!activitiesResponse.ok) {
           throw new Error('Failed to fetch activities');
         }
         const activitiesData = await activitiesResponse.json();
         
         const userId = JSON.parse(storedUser).id;
-        const itineraryResponse = await fetch(`https://bali-trip-website.fly.dev/itineraries/${userId}`);
+        const itineraryResponse = await fetch(`https://app-qfmuihch.fly.dev/itineraries/${userId}`);
         if (!itineraryResponse.ok) {
           throw new Error('Failed to fetch personal itinerary');
         }
@@ -58,7 +58,7 @@ const PersonalItinerary: React.FC = () => {
     if (!user) return;
 
     try {
-      await fetch(`https://bali-trip-website.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
+      await fetch(`https://app-qfmuihch.fly.dev/itineraries/${user.id}/activities/${activityId}`, {
         method: 'DELETE',
       });
       

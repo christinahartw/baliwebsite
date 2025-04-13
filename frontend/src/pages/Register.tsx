@@ -16,7 +16,7 @@ const Register = () => {
     setError('');
 
     try {
-      const response = await fetch('https://bali-trip-website.fly.dev/users/', {
+      const response = await fetch('https://app-qfmuihch.fly.dev/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Register = () => {
       
       localStorage.setItem('user', JSON.stringify(data));
       
-      await fetch(`https://bali-trip-website.fly.dev/itineraries/`, {
+      await fetch(`https://app-qfmuihch.fly.dev/itineraries/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
