@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 
 const Register = () => {
-  const [email, setEmail] = useState('');
+  const [handle, setHandle] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ handle }),
       });
 
       if (!response.ok) {
@@ -66,13 +66,13 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">Email</label>
+                  <label htmlFor="handle" className="text-sm font-medium">Username</label>
                   <Input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    id="handle"
+                    type="text"
+                    placeholder="Enter your username"
+                    value={handle}
+                    onChange={(e) => setHandle(e.target.value)}
                     required
                     className="border-2 border-primary/30 focus:border-primary/50"
                   />
@@ -86,7 +86,7 @@ const Register = () => {
           </CardContent>
           <CardFooter className="flex justify-center bg-accent/10 rounded-b-lg">
             <p className="text-sm text-muted-foreground">
-              No password required. Just enter your email to get started.
+              No password required. Just enter a username to get started.
             </p>
           </CardFooter>
         </Card>

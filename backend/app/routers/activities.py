@@ -391,42 +391,6 @@ activities_db = {
         category="Dining"
     ),
     
-    "act42": Activity(
-        id="act42",
-        title="Morning Yoga Session",
-        description="Final yoga session of the trip",
-        date=date(2025, 4, 24),
-        time=time(7, 0),
-        location="Alila Uluwatu Yoga Pavilion",
-        category="Yoga"
-    ),
-    "act43": Activity(
-        id="act43",
-        title="Breakfast",
-        description="Farewell breakfast",
-        date=date(2025, 4, 24),
-        time=time(8, 30),
-        location="Alila Uluwatu Restaurant",
-        category="Dining"
-    ),
-    "act44": Activity(
-        id="act44",
-        title="Check-out & Departure",
-        description="Check out from Alila Uluwatu and transfer to airport",
-        date=date(2025, 4, 24),
-        time=time(12, 0),
-        location="Alila Uluwatu",
-        category="Transportation"
-    ),
-    "act45": Activity(
-        id="act45",
-        title="Farewell Lunch",
-        description="Optional lunch before departure",
-        date=date(2025, 4, 24),
-        time=time(13, 0),
-        location="Alila Uluwatu Restaurant",
-        category="Dining"
-    ),
 }
 
 @router.get("/", response_model=List[Activity])

@@ -1,10 +1,10 @@
-from pydantic import BaseModel, EmailStr, HttpUrl
+from pydantic import BaseModel, HttpUrl
 from typing import List, Optional
 from datetime import date, time
 
 class User(BaseModel):
     id: str
-    email: EmailStr
+    handle: str
 
 class Activity(BaseModel):
     id: str
