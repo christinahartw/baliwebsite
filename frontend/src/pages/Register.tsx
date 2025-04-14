@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -10,10 +10,23 @@ const Register = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      navigate('/public-itinerary');
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
+
+    if (!handle.trim()) {
+      setError('Username cannot be empty');
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch('https://app-qfmuihch.fly.dev/users/', {
@@ -58,7 +71,7 @@ const Register = () => {
               <h1 className="text-3xl font-bold text-center text-primary">Bali Trip</h1>
               <CardTitle className="text-center text-xl">April 17-25, 2025</CardTitle>
               <CardDescription className="text-center text-base">
-                Create an account to view and select activities
+                Sign in with your username to view and select activities
               </CardDescription>
             </div>
           </CardHeader>
@@ -79,14 +92,14 @@ const Register = () => {
                 </div>
                 {error && <p className="text-sm text-destructive">{error}</p>}
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'Creating Account...' : 'Create Account'}
+                  {loading ? 'Signing in...' : 'Sign in'}
                 </Button>
               </div>
             </form>
           </CardContent>
           <CardFooter className="flex justify-center bg-accent/10 rounded-b-lg">
             <p className="text-sm text-muted-foreground">
-              No password required. Just enter a username to get started.
+              No password required. Just enter your username to access your itinerary.
             </p>
           </CardFooter>
         </Card>
