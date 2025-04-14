@@ -4,8 +4,32 @@ import { Activity, User } from '@/types';
 import ActivityCard from '@/components/itinerary/ActivityCard';
 import { Button } from '@/components/ui/button';
 
+interface UserEvent {
+  id: string;
+  user_id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  link?: string;
+  created_at?: string;
+}
+
+const convertEventToActivity = (event: UserEvent): Activity => {
+  return {
+    id: event.id,
+    title: event.title,
+    description: event.description,
+    date: event.date,
+    time: event.time,
+    location: 'User Event',
+    category: 'User Event'
+  };
+};
+
 const PublicItinerary: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
+  const [userEvents, setUserEvents] = useState<UserEvent[]>([]);
   const [personalActivities, setPersonalActivities] = useState<string[]>([]);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -29,6 +53,12 @@ const PublicItinerary: React.FC = () => {
         }
         const activitiesData = await activitiesResponse.json();
         setActivities(activitiesData);
+
+        const eventsResponse = await fetch('https://app-qfmuihch.fly.dev/events/');
+        if (eventsResponse.ok) {
+          const eventsData = await eventsResponse.json();
+          setUserEvents(eventsData);
+        }
 
         const userId = JSON.parse(storedUser).id;
         const itineraryResponse = await fetch(`https://app-qfmuihch.fly.dev/itineraries/${userId}`);
@@ -68,7 +98,11 @@ const PublicItinerary: React.FC = () => {
     }
   };
 
-  const groupedActivities = activities.reduce((groups, activity) => {
+  const userEventsAsActivities = userEvents.map(convertEventToActivity);
+  
+  const allActivities = [...activities, ...userEventsAsActivities];
+
+  const groupedActivities = allActivities.reduce((groups, activity) => {
     const date = activity.date;
     if (!groups[date]) {
       groups[date] = [];
