@@ -71,7 +71,7 @@ const Register = () => {
               <h1 className="text-3xl font-bold text-center text-primary">Bali Trip</h1>
               <CardTitle className="text-center text-xl">April 17-25, 2025</CardTitle>
               <CardDescription className="text-center text-base">
-                Sign in with your username to view and select activities
+                Get excited for Bali!!!!! Enter to create your personal itinerary
               </CardDescription>
             </div>
           </CardHeader>
