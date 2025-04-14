@@ -14,7 +14,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
   isInPersonalItinerary, 
   onToggleActivity 
 }) => {
-  const formattedDate = new Date(activity.date).toLocaleDateString('en-US', {
+  const formattedDate = new Date(activity.date + 'T00:00:00Z').toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
     day: 'numeric'

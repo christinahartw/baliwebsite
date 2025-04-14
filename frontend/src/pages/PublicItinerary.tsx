@@ -149,7 +149,7 @@ const PublicItinerary: React.FC = () => {
       {sortedDates.map(date => (
         <div key={date} className="mb-8 bg-white/50 p-4 rounded-lg shadow-sm border border-primary/20">
           <h2 className="text-2xl font-semibold mb-4 text-secondary-foreground">
-            {new Date(date).toLocaleDateString('en-US', {
+            {new Date(date + 'T00:00:00Z').toLocaleDateString('en-US', {
               weekday: 'long',
               month: 'long',
               day: 'numeric',

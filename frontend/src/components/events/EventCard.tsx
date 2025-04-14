@@ -25,7 +25,7 @@ const EventCard: React.FC<EventCardProps> = ({
   isCreator,
   onDelete
 }) => {
-  const formattedDate = new Date(event.date).toLocaleDateString('en-US', {
+  const formattedDate = new Date(event.date + 'T00:00:00Z').toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
     day: 'numeric'
