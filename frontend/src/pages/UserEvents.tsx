@@ -69,11 +69,13 @@ const UserEvents: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          title: eventData.title,
-          description: eventData.description,
-          date: eventData.date,  // ISO format YYYY-MM-DD
-          time: eventData.time,  // HH:MM format
-          link: eventData.link,
+          event: {
+            title: eventData.title,
+            description: eventData.description,
+            date: eventData.date,  // ISO format YYYY-MM-DD
+            time: eventData.time,  // HH:MM format
+            link: eventData.link,
+          },
           user_id: user.id,
         }),
       });
